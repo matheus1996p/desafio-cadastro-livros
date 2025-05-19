@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,7 @@ export class DashboardComponent implements OnInit {
   totalLivros = 0;
   totalAutores = 0;
   totalAssuntos = 0;
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -34,13 +36,15 @@ export class DashboardComponent implements OnInit {
 
   contar() {
     this.http
-      .get<number>('http://localhost:8080/livros/quantidade')
+      .get<number>(`${this.apiUrl}/livros/quantidade`)
       .subscribe((v) => (this.totalLivros = v));
+
     this.http
-      .get<number>('http://localhost:8080/autores/quantidade')
+      .get<number>(`${this.apiUrl}/autores/quantidade`)
       .subscribe((v) => (this.totalAutores = v));
+
     this.http
-      .get<number>('http://localhost:8080/assuntos/quantidade')
+      .get<number>(`${this.apiUrl}/assuntos/quantidade`)
       .subscribe((v) => (this.totalAssuntos = v));
   }
 
@@ -50,7 +54,7 @@ export class DashboardComponent implements OnInit {
 
   exportarRelatorio() {
     this.http
-      .get('http://localhost:8080/relatorios/exportar', {
+      .get(`${this.apiUrl}/relatorios/exportar`, {
         responseType: 'blob',
       })
       .subscribe((blob) => {
