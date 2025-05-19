@@ -5,7 +5,7 @@ Tecnologias utilizadas:
 - Banco de Dados: PostgreSQL
 - Containerização: Docker + Docker Compose
 
-Pré-requisitos (Com docker):
+Pré-requisitos:
 
 - Docker Desktop: https://www.docker.com/products/docker-desktop
 - Git: https://git-scm.com/
