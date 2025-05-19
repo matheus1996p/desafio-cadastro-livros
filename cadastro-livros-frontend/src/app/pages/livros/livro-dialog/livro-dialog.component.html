@@ -1,0 +1,101 @@
+<h2 mat-dialog-title>{{ data.livro.id ? "Editar" : "Novo" }} Livro</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="titulo" required />
+      <mat-error *ngIf="form.get('titulo')?.errors?.['required']">
+        Título é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Editora</mat-label>
+      <input matInput formControlName="editora" required />
+      <mat-error *ngIf="form.get('editora')?.errors?.['required']">
+        Editora é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Edição</mat-label>
+      <input matInput type="number" formControlName="edicao" required />
+      <mat-error *ngIf="form.get('edicao')?.errors?.['required']">
+        Edição é obrigatória
+      </mat-error>
+      <mat-error *ngIf="form.get('edicao')?.errors?.['min']">
+        Edição deve ser maior que 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Ano de Publicação</mat-label>
+      <input matInput formControlName="anoPublicacao" required />
+      <mat-error *ngIf="form.get('anoPublicacao')?.errors?.['required']">
+        Ano de publicação é obrigatório
+      </mat-error>
+      <mat-error *ngIf="form.get('anoPublicacao')?.errors?.['pattern']">
+        Formato inválido (use AAAA)
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Valor</mat-label>
+      <input
+        matInput
+        formControlName="valor"
+        required
+        currencyMask
+        [options]="{
+          prefix: 'R$ ',
+          thousands: '.',
+          decimal: ',',
+          allowNegative: false
+        }"
+      />
+      <mat-error *ngIf="form.get('valor')?.errors?.['required']">
+        Valor � obrigat�rio
+      </mat-error>
+      <mat-error *ngIf="form.get('valor')?.errors?.['min']">
+        Valor deve ser maior ou igual a 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Autores</mat-label>
+      <mat-select formControlName="autores" multiple required>
+        <mat-option *ngFor="let autor of data.autores" [value]="autor.id">
+          {{ autor.nome }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('autores')?.errors?.['required']">
+        Selecione pelo menos um autor
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Assuntos</mat-label>
+      <mat-select formControlName="assuntos" multiple required>
+        <mat-option *ngFor="let assunto of data.assuntos" [value]="assunto.id">
+          {{ assunto.descricao }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('assuntos')?.errors?.['required']">
+        Selecione pelo menos um assunto
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      {{ data.livro.id ? "Atualizar" : "Criar" }}
+    </button>
+  </mat-dialog-actions>
+</form>

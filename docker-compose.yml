@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: desafio-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 211969
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - desafio-network
+
+  backend:
+    build:
+      context: ./cadastrolivros
+    container_name: desafio-backend
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 211969
+    ports:
+      - "8080:8080"
+    networks:
+      - desafio-network
+
+  frontend:
+    build:
+      context: ./cadastro-livros-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    container_name: desafio-frontend
+
+volumes:
+  pgdata:
+
+networks:
+  desafio-network:

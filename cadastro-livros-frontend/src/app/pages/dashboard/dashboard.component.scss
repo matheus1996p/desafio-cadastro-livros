@@ -1,0 +1,141 @@
+$primary-dark: #1f2937;
+$gray-light: #f3f4f6;
+
+.dashboard-wrapper {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: $gray-light;
+  min-height: 100vh;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $primary-dark;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  button {
+    border-radius: 8px;
+    text-transform: none;
+    font-weight: 500;
+  }
+
+  mat-icon {
+    margin-right: 4px;
+  }
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+
+  .summary-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icon {
+      font-size: 48px;
+      color: $primary-dark;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      font-size: 3.2rem;
+      font-weight: bold;
+      color: $primary-dark;
+      margin-bottom: 16px;
+      line-height: 1;
+      position: relative;
+      padding-bottom: 16px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+      }
+    }
+
+    .label {
+      font-size: 1.1rem;
+      color: #4b5563;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+.shortcut-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+
+  .shortcut {
+    background: white;
+    border-radius: 8px;
+    padding: 32px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      background-color: #e5e7eb;
+    }
+
+    .big-icon {
+      font-size: 60px;
+      color: $primary-dark;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      margin: 0 0 16px 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $primary-dark;
+    }
+
+    button {
+      border-radius: 6px;
+      text-transform: none;
+      font-weight: 500;
+    }
+
+    mat-icon {
+      font-family: "Material Icons" !important;
+      font-weight: normal;
+      font-style: normal;
+      font-size: inherit;
+      display: inline-block;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}

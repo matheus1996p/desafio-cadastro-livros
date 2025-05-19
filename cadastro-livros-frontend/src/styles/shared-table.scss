@@ -1,0 +1,81 @@
+.page-container {
+  padding: 24px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 500;
+      color: #1976d2;
+    }
+
+    button {
+      &.novo-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 16px;
+        height: 36px;
+
+        mat-icon {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  .mat-elevation-z8 {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+
+    th {
+      background-color: #f5f5f5;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 0 16px;
+      height: 48px;
+    }
+
+    td {
+      padding: 0 16px;
+      height: 48px;
+      font-size: 14px;
+    }
+
+    .mat-column-acoes {
+      width: 90px;
+      text-align: center;
+      white-space: nowrap;
+      padding: 0 8px;
+
+      button {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0;
+        margin: 0 2px;
+
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    tr.mat-row:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}

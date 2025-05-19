@@ -1,0 +1,57 @@
+.assuntos-container {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .form-card {
+    margin-bottom: 20px;
+  }
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+    .full-width {
+      width: 100%;
+    }
+
+    .botoes-form {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+  }
+
+  .table-card {
+    .tabela {
+      width: 100%;
+    }
+
+    .acoes-header {
+      text-align: center;
+      width: 120px;
+    }
+
+    .acoes-cell {
+      text-align: center;
+      width: 120px;
+
+      .acoes-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+    }
+  }
+}

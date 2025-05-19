@@ -1,0 +1,46 @@
+<div class="page-container">
+  <div class="header">
+    <h1>Cadastro de Autores</h1>
+    <button
+      mat-raised-button
+      color="primary"
+      class="novo-button"
+      (click)="abrirDialog()"
+    >
+      <mat-icon>add</mat-icon>
+      Novo Autor
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="autores" class="mat-elevation-z8">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let autor">{{ autor.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let autor">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="abrirDialog(autor)"
+          matTooltip="Editar"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="excluir(autor.id!)"
+          matTooltip="Excluir"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

@@ -1,0 +1,51 @@
+<div class="dashboard-wrapper">
+  <div class="top-header">
+    <h1>Dashboard</h1>
+    <button mat-stroked-button color="primary" (click)="exportarRelatorio()">
+      Exportar relatório geral
+    </button>
+  </div>
+
+  <div class="summary-cards">
+    <mat-card class="summary-card">
+      <div class="value">{{ totalLivros }}</div>
+      <div class="label">Livros</div>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <div class="value">{{ totalAssuntos }}</div>
+      <div class="label">Assuntos</div>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <div class="value">{{ totalAutores }}</div>
+      <div class="label">Autores</div>
+    </mat-card>
+  </div>
+
+  <div class="shortcut-cards">
+    <mat-card class="shortcut" (click)="navigateTo('/livros')">
+      <h3>Ver livros</h3>
+      <button mat-stroked-button color="primary">
+        <mat-icon>menu_book</mat-icon>
+        Ver livros
+      </button>
+    </mat-card>
+
+    <mat-card class="shortcut" (click)="navigateTo('/assuntos')">
+      <h3>Ver assuntos</h3>
+      <button mat-stroked-button color="primary">
+        <mat-icon>bookmark</mat-icon>
+        Ver assuntos
+      </button>
+    </mat-card>
+
+    <mat-card class="shortcut" (click)="navigateTo('/autores')">
+      <h3>Ver autores</h3>
+      <button mat-stroked-button color="primary">
+        <mat-icon>person</mat-icon>
+        Ver autores
+      </button>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+.autores-container {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+      color: #1976d2;
+    }
+  }
+
+  .form-card {
+    margin-bottom: 20px;
+
+    mat-card-header {
+      padding: 16px;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #e0e0e0;
+
+      mat-card-title {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .formulario {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .full-width {
+      width: 100%;
+    }
+
+    .botoes-form {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .table-card {
+    mat-card-content {
+      padding: 0;
+    }
+  }
+
+  .tabela {
+    width: 100%;
+
+    th {
+      font-weight: 500;
+      color: #1976d2;
+      background-color: #f5f5f5;
+    }
+
+    .acoes-header {
+      width: 90px;
+      text-align: center;
+    }
+
+    .acoes-cell {
+      width: 90px;
+      padding: 0 8px !important;
+
+      .acoes-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+
+        button {
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+
+          mat-icon {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    tr.mat-row:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}

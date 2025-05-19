@@ -1,0 +1,60 @@
+<div class="livros-form-container">
+  <h2>{{ isEditMode ? "Editar Livro" : "Novo Livro" }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <mat-form-field appearance="fill">
+      <mat-label>Título*</mat-label>
+      <input matInput formControlName="titulo" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Editora</mat-label>
+      <input matInput formControlName="editora" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Autores</mat-label>
+      <mat-select formControlName="autores" multiple>
+        <mat-option *ngFor="let autor of autoresDisponiveis" [value]="autor.id">
+          {{ autor.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Assuntos</mat-label>
+      <mat-select formControlName="assuntos" multiple>
+        <mat-option
+          *ngFor="let assunto of assuntosDisponiveis"
+          [value]="assunto.id"
+        >
+          {{ assunto.descricao }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Edição</mat-label>
+      <input matInput type="number" formControlName="edicao" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ano de Publicação</mat-label>
+      <input matInput type="number" formControlName="anoPublicacao" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Valor</mat-label>
+      <input matInput type="number" formControlName="valor" />
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit">
+        {{ isEditMode ? "Atualizar" : "Salvar" }}
+      </button>
+      <button mat-button type="button" color="warn" (click)="voltar()">
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>
