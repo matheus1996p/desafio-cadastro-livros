@@ -21,17 +21,13 @@ public class OpenApiConfig {
                 );
     }
 
-    @Bean
+@Bean
 public WebMvcConfigurer corsConfigurer() {
     return new WebMvcConfigurer() {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
-                    .allowedOrigins(
-                        "http://localhost:4200",  
-                        "http://frontend-1",      
-                        "http://localhost"        
-                    )
+                    .allowedOriginPatterns("*") 
                     .allowedMethods("*")
                     .allowedHeaders("*");
         }
