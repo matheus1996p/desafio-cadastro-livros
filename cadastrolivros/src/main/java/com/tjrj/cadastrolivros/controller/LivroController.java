@@ -2,6 +2,8 @@ package com.tjrj.cadastrolivros.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -24,17 +26,21 @@ import com.tjrj.cadastrolivros.service.LivroService;
 @RequestMapping("/livros")
 public class LivroController {
 
+    private static final Logger logger = LoggerFactory.getLogger(LivroController.class);
+    
     @Autowired
     private LivroService livroService;
 
-    @GetMapping
+     @GetMapping
     public ResponseEntity<?> listar() {
         try {
             List<Livro> lista = livroService.listarTodos();
             return ResponseEntity.ok(lista);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao listar livros.");
+            logger.error("Erro ao listar livros:", e); // log completo com stacktrace
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao listar livros: " + e.getMessage());
         }
     }
 
