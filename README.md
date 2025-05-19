@@ -1,16 +1,16 @@
 Tecnologias utilizadas:
 
-Backend: Java 21 + Spring Boot
-Frontend: Angular
-Banco de Dados: PostgreSQL
-Containerização: Docker + Docker Compose
+- Backend: Java 21 + Spring Boot
+- Frontend: Angular
+- Banco de Dados: PostgreSQL
+- Containerização: Docker + Docker Compose
 
 Pré-requisitos (Com docker):
 
-Docker Desktop: https://www.docker.com/products/docker-desktop
-Git: https://git-scm.com/
-Node.js + npm: https://nodejs.org/
-Angular CLI: https://angular.io/cli
+- Docker Desktop: https://www.docker.com/products/docker-desktop
+- Git: https://git-scm.com/
+- Node.js + npm: https://nodejs.org/
+- Angular CLI: https://angular.io/cli
 
 Como executar o projeto localmente
 
