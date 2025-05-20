@@ -21,5 +21,5 @@ Como executar o projeto localmente
 
 2. Suba o projeto com o docker
 
-docker-compose up -d --build
+- docker-compose up -d --build
 
