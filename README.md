@@ -16,10 +16,10 @@ Como executar o projeto localmente
 
 1. Clone o repositório
 
-git clone https://github.com/matheus1996p/desafio-cadastro-livros.git
-cd desafio-cadastro-livros
+- git clone https://github.com/matheus1996p/desafio-cadastro-livros.git
+- cd desafio-cadastro-livros
 
 2. Suba o projeto com o docker
 
-docker-compose up -d
+docker-compose up -d --build
 
